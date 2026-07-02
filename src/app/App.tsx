@@ -1021,9 +1021,6 @@ export default function App() {
               {GALLERY_IMAGES.map((src, index) => (
                 <figure key={src} className="reveal group relative aspect-[3/4] overflow-hidden bg-secondary shadow-lg shadow-slate-100 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-slate-200">
                   <img src={src} alt={t.galleryLabels[index]} className="h-full w-full object-cover scale-110 group-hover:scale-125 transition-transform duration-700" />
-                  <figcaption className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-foreground/75 to-transparent text-xs tracking-widest text-white">
-                    {t.galleryLabels[index]}
-                  </figcaption>
                 </figure>
               ))}
             </div>

@@ -106,7 +106,7 @@ const TRANSLATIONS = {
     ],
     brandReferenceLabel: "Order Experience",
     brandReferenceTitle: "历史订单涉及品牌参考",
-    brandReferenceIntro: "以下品牌名称来自现有工厂评估资料，用于说明工厂曾接触过的订单标准与品类经验。正式上线前建议确认授权边界；当前页面以文字标识展示，不直接使用官方商标图形。",
+    brandReferenceIntro: "以下品牌名称依据工厂历史订单及评估资料整理，仅用于说明过往生产经验与订单标准。相关商标归各自权利人所有，本页不构成品牌授权、经销或持续合作关系声明。",
     brandReferences: [
       ["SM2", "https://www.canshop.jp/sm2/"],
       ["MOUSSY", "https://www.moussy.ne.jp/"],
@@ -125,12 +125,12 @@ const TRANSLATIONS = {
     aboutParagraphs: [
       "如皋市晨翔服装有限公司位于江苏省如皋市城南街道马塘社区，是一家以服装生产加工为核心的制造型工厂。家族工厂从事服装代加工 20 多年，长期围绕成衣订单开展生产，近几年进一步拓展羽绒服、棉服等冬装品类。",
       "晨翔的优势不是流量，也不是概念，而是 20 多年代加工积累下来的现场经验：读懂工艺单、控制尺寸偏差、处理车缝细节、保持批次稳定，并按客户要求完成整烫、包装与出货配合。",
-      "未来，晨翔可以作为制造端承接来自跨境电商、外贸贸易公司、买手店和成长型服装品牌的开发与生产需求。",
+      "晨翔面向跨境电商品牌、外贸贸易公司、买手店和成长型服装品牌，提供样衣开发、订单评估与生产协作。",
     ],
     capabilitiesLabel: "Manufacturing Scope",
     capabilitiesTitleA: "可承接的",
     capabilitiesTitleB: "核心制造能力",
-    capabilitiesIntro: "适合将来做官网、B2B 询盘页、TikTok Shop 供应链背书，也能放入辰博贸易网站作为合作工厂展示。",
+    capabilitiesIntro: "从样衣评估、工艺沟通到批量生产与出货配合，晨翔根据订单要求提供稳定、透明的服装 OEM 制造服务。",
     capabilities: [
       ["01", "成衣加工制造", "Garment Manufacturing", "承接衬衫、裙装、裤装、夹克、外套等成衣品类，从样衣、版型调整到批量生产保持稳定交付。"],
       ["02", "羽绒服与棉服", "Down & Padded Jackets", "近年也承接羽绒服与棉服加工订单，可根据客户需求进行生产评估。"],
@@ -143,12 +143,12 @@ const TRANSLATIONS = {
     qualityTitleA: "质量控制，",
     qualityTitleB: "从样衣开始",
     qualityText:
-      "对服装工厂来说，品质不是最后验货才发生的事情。真正能影响成品稳定性的，是前期工艺理解、版型尺寸、面辅料确认、生产中查和返修机制。晨翔更适合把“日本订单标准”转化成可展示、可沟通的质量流程。",
+      "对服装工厂来说，品质不是最后验货才发生的事情。真正影响成品稳定性的，是前期工艺理解、版型尺寸、面辅料确认、生产中查和返修机制。晨翔将长期积累的日本订单经验落实到可执行、可追踪的质量流程中。",
     qualitySteps: ["需求确认与样衣评估", "纸样/尺寸表核对", "面辅料与工艺确认", "裁剪与上线生产", "中查巡检与问题返修", "尾查、整烫与包装", "装箱资料与出货配合"],
     qualityPillars: [
       ["人员配置", "组检 2 人 / 总检 2 人", "工厂评估表显示配置组检、总检、小烫、大烫、包装等岗位，形成从生产到后道的检查链路。"],
       ["设备覆盖", "52 台/套主要设备", "含缝纫机、双针车、包缝机、锁眼、订扣、烫台、模板机、花样机、充绒机等。"],
-      ["现场评估", "整体环境：好", "评估表中整体环境与管理人员评价均记录为“好”，适合作为客户初步了解工厂管理的公开资料。"],
+      ["现场评估", "整体环境：好", "现有评估表中，工厂整体环境与管理人员评价均记录为“好”。"],
       ["流程节点", "样衣 - 生产 - 后道 - 包装", "围绕样衣评估、尺寸核对、生产中查、尾查整烫、包装出货建立基础质量流程。"],
     ],
     qualityEvidenceTitle: "来自工厂评估表的质量相关信息",
@@ -165,8 +165,8 @@ const TRANSLATIONS = {
     galleryLabel: "Factory Gallery",
     galleryTitleA: "工厂实景",
     galleryTitleB: "与生产细节",
-    galleryIntro: "官网第一版先用真实现场照片建立信任，后续可以补拍横版门头、样衣陈列、质检台、包装区和老板/团队合影。",
-    galleryLabels: ["生产车间", "缝制工位", "工艺细节", "车间设备", "成衣检查", "样衣与成品", "员工操作", "现场管理"],
+    galleryIntro: "以下照片拍摄于晨翔生产现场，呈现车间环境、缝制作业、设备配置、检验环节与日常生产管理。",
+    galleryLabels: ["生产车间", "缝制工位", "工艺细节", "车间设备", "成衣检查", "现场陈列", "员工操作", "现场管理"],
     contactLabel: "Business Inquiry",
     contactTitleA: "有样衣、有工艺单，",
     contactTitleB: "就可以开始评估",
@@ -192,11 +192,11 @@ const TRANSLATIONS = {
       requirements: "需求说明",
       requirementsPlaceholder: "请说明款式、面料、工艺、尺码、包装或目标市场等信息",
       submit: "生成询盘邮件",
-      note: "提交后会整理并复制询盘内容，同时打开您的默认邮件应用。样衣、尺寸表和工艺单可在邮件中作为附件添加。",
+      note: "本网站不会存储您填写的信息。提交后将整理并复制询盘内容，同时打开您的默认邮件应用；样衣、尺寸表和工艺单可在邮件中作为附件添加。",
       ready: "询盘内容已整理并复制，请在邮件应用中确认收件人和附件后发送。",
       subject: "晨翔服装 OEM 询盘",
     },
-    footerDraft: "© 2026 如皋市晨翔服装有限公司 · 工厂展示网站草案",
+    footer: "© 2026 如皋市晨翔服装有限公司 · 版权所有",
   },
   ja: {
     htmlLang: "ja",
@@ -278,7 +278,7 @@ const TRANSLATIONS = {
     ],
     brandReferenceLabel: "Order Experience",
     brandReferenceTitle: "過去注文に関わるブランド参考",
-    brandReferenceIntro: "以下のブランド名は既存の工場評価資料に基づき、工場が経験してきた注文基準と品類を伝えるための参考表示です。公開前には使用範囲を確認し、現在は公式ロゴではなく文字表示にしています。",
+    brandReferenceIntro: "以下のブランド名は、過去の注文記録および工場評価資料に基づく生産経験の参考表示です。各商標はそれぞれの権利者に帰属し、ブランドの認定、販売代理、継続的な取引関係を示すものではありません。",
     brandReferences: [
       ["SM2", "https://www.canshop.jp/sm2/"],
       ["MOUSSY", "https://www.moussy.ne.jp/"],
@@ -297,12 +297,12 @@ const TRANSLATIONS = {
     aboutParagraphs: [
       "如皋市晨翔服装有限公司は、江蘇省如皋市城南街道馬塘社区にある服装加工を中心とした製造工場です。家族工場として20年以上アパレルOEMに携わり、既製服の受注生産を軸に、近年はダウンウェアや中綿ウェアにも対応しています。",
       "晨翔の強みは宣伝文句ではなく、現場で培った経験です。仕様書の理解、寸法誤差の管理、縫製ディテール、ロットの安定性、仕上げ、包装、出荷対応まで丁寧に進めます。",
-      "今後は、越境ECブランド、貿易会社、セレクトショップ、成長中のアパレルブランドに向けた製造パートナーとして対応できます。",
+      "越境ECブランド、貿易会社、セレクトショップ、成長中のアパレルブランドに向けて、サンプル開発、注文評価、生産連携を提供します。",
     ],
     capabilitiesLabel: "Manufacturing Scope",
     capabilitiesTitleA: "対応可能な",
     capabilitiesTitleB: "主要生産能力",
-    capabilitiesIntro: "公式サイト、B2B問い合わせ、TikTok Shopのサプライチェーン紹介、また辰博貿易サイトの協力工場紹介にも活用できます。",
+    capabilitiesIntro: "サンプル評価、仕様確認、量産、出荷連携まで、注文条件に応じた安定性と透明性のあるアパレルOEMサービスを提供します。",
     capabilities: [
       ["01", "既製服加工", "Garment Manufacturing", "シャツ、スカート、パンツ、ジャケット、アウターなど、サンプル確認から量産まで安定して対応します。"],
       ["02", "ダウン・中綿ウェア", "Down & Padded Jackets", "近年はダウン・中綿ウェアの加工注文にも対応し、お客様の要件に応じて生産可否を確認します。"],
@@ -315,12 +315,12 @@ const TRANSLATIONS = {
     qualityTitleA: "品質管理は、",
     qualityTitleB: "サンプル段階から",
     qualityText:
-      "服装工場にとって、品質は最終検品だけで決まるものではありません。仕様理解、型紙と寸法、資材確認、工程内検査、修正対応が製品の安定性を左右します。晨翔は日本向け注文の基準を、見える品質管理プロセスとして伝えることができます。",
+      "服装工場にとって、品質は最終検品だけで決まるものではありません。仕様理解、型紙と寸法、資材確認、工程内検査、修正対応が製品の安定性を左右します。晨翔は日本向け注文で培った経験を、実行可能で追跡できる品質管理プロセスに反映しています。",
     qualitySteps: ["要件確認とサンプル評価", "型紙・サイズ表確認", "生地・副資材・仕様確認", "裁断とライン投入", "工程内検査と修正", "最終検品・仕上げ・包装", "箱詰め資料と出荷連携"],
     qualityPillars: [
       ["人員体制", "工程検査 2名 / 最終検査 2名", "工場評価表には、工程検査、最終検査、アイロン、包装などの職種が記録され、生産から後工程までの確認体制があります。"],
       ["設備構成", "主要設備 52 台/セット", "ミシン、二本針、オーバーロック、ボタンホール、ボタン付け、アイロン台、テンプレート機、刺繍系設備、充填機などを含みます。"],
-      ["現場評価", "全体環境：良好", "評価表では全体環境と管理者評価が「良好」と記録されており、工場管理を説明する公開資料として使えます。"],
+      ["現場評価", "全体環境：良好", "既存の評価表では、工場全体の環境と管理者評価がともに「良好」と記録されています。"],
       ["工程管理", "サンプル - 生産 - 後工程 - 包装", "サンプル評価、寸法確認、工程内検査、最終確認、仕上げ、包装出荷までの基本品質フローを構成しています。"],
     ],
     qualityEvidenceTitle: "工場評価表に基づく品質関連情報",
@@ -337,8 +337,8 @@ const TRANSLATIONS = {
     galleryLabel: "Factory Gallery",
     galleryTitleA: "工場風景",
     galleryTitleB: "と生産ディテール",
-    galleryIntro: "第一版では実際の現場写真で信頼感を伝えます。今後は入口、サンプルラック、検品台、包装エリア、チーム写真を追加するとさらに良くなります。",
-    galleryLabels: ["生産現場", "縫製作業", "工程ディテール", "工場設備", "製品検査", "サンプルと完成品", "作業風景", "現場管理"],
+    galleryIntro: "以下の写真は晨翔の生産現場で撮影され、工場環境、縫製作業、設備、検品工程、日常の生産管理を紹介しています。",
+    galleryLabels: ["生産現場", "縫製作業", "工程ディテール", "工場設備", "製品検査", "現場展示", "作業風景", "現場管理"],
     contactLabel: "Business Inquiry",
     contactTitleA: "サンプルや仕様書があれば、",
     contactTitleB: "評価を始められます",
@@ -364,11 +364,11 @@ const TRANSLATIONS = {
       requirements: "ご要望",
       requirementsPlaceholder: "デザイン、生地、仕様、サイズ、包装、対象市場などをご記入ください",
       submit: "問い合わせメールを作成",
-      note: "送信すると内容を整理してコピーし、標準メールアプリを開きます。サンプル、サイズ表、仕様書はメールに添付できます。",
+      note: "本サイトは入力内容を保存しません。送信すると問い合わせ内容を整理してコピーし、標準メールアプリを開きます。サンプル、サイズ表、仕様書はメールに添付できます。",
       ready: "問い合わせ内容をコピーしました。メールで宛先と添付資料をご確認のうえ送信してください。",
       subject: "晨翔服装 OEM お問い合わせ",
     },
-    footerDraft: "© 2026 如皋市晨翔服装有限公司 · 工場紹介サイト草案",
+    footer: "© 2026 如皋市晨翔服装有限公司 · All Rights Reserved",
   },
   en: {
     htmlLang: "en",
@@ -450,7 +450,7 @@ const TRANSLATIONS = {
     ],
     brandReferenceLabel: "Order Experience",
     brandReferenceTitle: "Brand references from past order records",
-    brandReferenceIntro: "The following names are organized from existing factory assessment materials to communicate order-standard and category experience. Before public launch, authorization boundaries should be confirmed; this draft uses text marks instead of official logo artwork.",
+    brandReferenceIntro: "The following names are based on historical order records and factory assessment materials and are shown solely as references to past production experience. All trademarks belong to their respective owners; this page does not imply endorsement, distribution rights or an ongoing business relationship.",
     brandReferences: [
       ["SM2", "https://www.canshop.jp/sm2/"],
       ["MOUSSY", "https://www.moussy.ne.jp/"],
@@ -469,12 +469,12 @@ const TRANSLATIONS = {
     aboutParagraphs: [
       "Rugao Chenxiang Garments Co., Ltd. is located in Matang Community, Chengnan Subdistrict, Rugao, Jiangsu. It is a manufacturing-oriented factory focused on apparel production and processing. The family factory has over 20 years of apparel OEM experience, with recent expansion into down jackets and padded outerwear.",
       "Chenxiang's strength is not traffic or marketing language, but practical experience accumulated on the production floor: understanding tech packs, controlling measurement tolerances, handling sewing details, maintaining batch consistency, finishing, packaging and shipment coordination.",
-      "Going forward, Chenxiang can serve as a manufacturing partner for cross-border e-commerce brands, trading companies, boutiques and growing apparel labels.",
+      "Chenxiang supports cross-border e-commerce brands, trading companies, boutiques and growing apparel labels with sample development, order evaluation and production coordination.",
     ],
     capabilitiesLabel: "Manufacturing Scope",
     capabilitiesTitleA: "Core",
     capabilitiesTitleB: "manufacturing capabilities",
-    capabilitiesIntro: "Suitable for a factory website, B2B inquiry page, TikTok Shop supply-chain proof, and future supplier presentation on Chenbo Trading's website.",
+    capabilitiesIntro: "From sample evaluation and specification review to bulk production and shipment coordination, Chenxiang provides stable and transparent apparel OEM services tailored to each order.",
     capabilities: [
       ["01", "Garment Manufacturing", "Garment Manufacturing", "Shirts, skirts, trousers, jackets, coats and related apparel categories, from sample review and pattern adjustment to stable bulk production."],
       ["02", "Down & Padded Jackets", "Down & Padded Jackets", "We also accept down and padded jacket processing orders, subject to production review based on customer requirements."],
@@ -487,12 +487,12 @@ const TRANSLATIONS = {
     qualityTitleA: "Quality control",
     qualityTitleB: "starts from sampling",
     qualityText:
-      "For an apparel factory, quality is not created only at final inspection. Stable products depend on early process understanding, pattern and measurement control, material confirmation, in-line inspection and repair mechanisms. Chenxiang can translate Japan-oriented order standards into a visible and communicable quality process.",
+      "For an apparel factory, quality is not created only at final inspection. Stable products depend on early process understanding, pattern and measurement control, material confirmation, in-line inspection and repair mechanisms. Chenxiang applies its Japan-oriented order experience through an actionable and traceable quality process.",
     qualitySteps: ["Requirement review and sample evaluation", "Pattern and size chart check", "Fabric, trims and process confirmation", "Cutting and line production", "In-line inspection and repair", "Final inspection, pressing and packing", "Carton documents and shipment coordination"],
     qualityPillars: [
       ["Quality team", "2 in-line inspectors / 2 final inspectors", "The factory assessment records roles including in-line inspection, final inspection, pressing, packing and management, forming a basic production-to-finishing quality chain."],
       ["Equipment coverage", "52 key units/sets", "Includes sewing machines, double-needle machines, overlock machines, buttonhole machines, button attaching, ironing tables, template machines, pattern machines and filling machines."],
-      ["Site assessment", "Overall environment: good", "The assessment sheet records both overall environment and management evaluation as good, giving customers a first-level reference for factory management."],
+      ["Site assessment", "Overall environment: good", "The existing assessment sheet records both the factory environment and management evaluation as good."],
       ["Process control", "Sample - production - finishing - packing", "The system covers sample evaluation, measurement checking, in-line inspection, final checking, pressing, packing and shipment coordination."],
     ],
     qualityEvidenceTitle: "Quality-related data from factory assessment",
@@ -509,8 +509,8 @@ const TRANSLATIONS = {
     galleryLabel: "Factory Gallery",
     galleryTitleA: "Factory scenes",
     galleryTitleB: "and production details",
-    galleryIntro: "The first version uses real on-site photos to build trust. Later, horizontal shots of the entrance, sample racks, QC table, packing area and team can further improve the site.",
-    galleryLabels: ["Production floor", "Sewing station", "Process detail", "Workshop equipment", "Garment inspection", "Samples and finished goods", "Operator at work", "Shop-floor management"],
+    galleryIntro: "The following photographs were taken at Chenxiang's production site and show the workshop environment, sewing operations, equipment, inspection activities and daily production management.",
+    galleryLabels: ["Production floor", "Sewing station", "Process detail", "Workshop equipment", "Garment inspection", "Workshop display", "Operator at work", "Shop-floor management"],
     contactLabel: "Business Inquiry",
     contactTitleA: "With a sample or tech pack,",
     contactTitleB: "we can start evaluation",
@@ -536,11 +536,11 @@ const TRANSLATIONS = {
       requirements: "Requirements",
       requirementsPlaceholder: "Describe the style, fabric, construction, sizing, packing or target market",
       submit: "Create Inquiry Email",
-      note: "Submitting prepares and copies the inquiry, then opens your default email app. Samples, size charts and tech packs can be added as email attachments.",
+      note: "This website does not store the information you enter. Submitting prepares and copies the inquiry, then opens your default email app; samples, size charts and tech packs can be added as attachments.",
       ready: "The inquiry has been prepared and copied. Confirm the recipient and attachments in your email app before sending.",
       subject: "Chenxiang Garments OEM Inquiry",
     },
-    footerDraft: "© 2026 Rugao Chenxiang Garments Co., Ltd. · Factory website draft",
+    footer: "© 2026 Rugao Chenxiang Garments Co., Ltd. · All Rights Reserved",
   },
 } as const;
 
@@ -1128,7 +1128,7 @@ export default function App() {
             </div>
             <div className="mt-1 text-[10px] tracking-[0.28em] text-muted-foreground uppercase">{t.brandSub}</div>
           </div>
-          <div className="text-xs text-muted-foreground">{t.footerDraft}</div>
+          <div className="text-xs text-muted-foreground">{t.footer}</div>
         </div>
       </footer>
     </div>

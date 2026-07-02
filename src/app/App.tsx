@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { ArrowRight, Check, Menu, X } from "lucide-react";
 
 type Lang = "zh" | "ja" | "en";
-type ProductCategory = "all" | "padded" | "outerwear" | "garments" | "details";
 
 const LANGUAGES: { code: Lang; label: string }[] = [
   { code: "zh", label: "中文" },
@@ -35,7 +34,7 @@ const TRANSLATIONS = {
       ["工厂介绍", "#about"],
       ["制造能力", "#capabilities"],
       ["工厂资料", "#facts"],
-      ["产品样品", "#products"],
+      ["品牌参考", "#products"],
       ["质量流程", "#quality"],
       ["社区微工厂", "#community"],
       ["工厂实景", "#gallery"],
@@ -60,7 +59,7 @@ const TRANSLATIONS = {
         "资料展示",
         [
           ["工厂资料", "#facts"],
-          ["产品样品", "#products"],
+          ["品牌参考", "#products"],
           ["工厂实景", "#gallery"],
         ],
       ],
@@ -75,7 +74,7 @@ const TRANSLATIONS = {
     ctaCapabilities: "查看制造能力",
     ctaGallery: "查看工厂实景",
     nextLinks: {
-      facts: "继续看产品样品",
+      facts: "继续看品牌参考",
       products: "了解工厂介绍",
       about: "查看制造能力",
       capabilities: "查看质量流程",
@@ -102,23 +101,6 @@ const TRANSLATIONS = {
       ["人员配置", "28 人", "含缝工、裁剪、打版、总检、包装等岗位"],
       ["生产区域", "约 2,000㎡+", "涵盖裁剪、缝纫车间、后道、仓库等区域"],
       ["适应产品", "成衣 / 夹克 / 棉衣 / 羽绒服", "可根据样衣、工艺单和订单要求评估"],
-    ],
-    productsLabel: "Sample Works",
-    productsTitleA: "按品类展示",
-    productsTitleB: "可承接样品方向",
-    productsIntro: "当前先用现有工厂照片作为样品板块结构占位。后续补充真实样衣、平铺图、细节图后，可以直接替换成更完整的产品展示。",
-    productCategories: [
-      ["all", "全部"],
-      ["padded", "羽绒 / 棉服"],
-      ["outerwear", "夹克外套"],
-      ["garments", "成衣加工"],
-      ["details", "工艺细节"],
-    ],
-    productSamples: [
-      ["padded", "羽绒服与棉服", "可围绕裁片、充绒/充棉、绗线、压线、整烫和成品质检进行订单评估。"],
-      ["outerwear", "夹克与外套", "适合夹克、外套、呢子衣等品类，可根据样衣、工艺单和目标面料进行拆解。"],
-      ["garments", "衬衫、裙装、裤装", "适应衬衫、裙装、裤装、连衣裙等成衣加工需求，重视尺寸稳定和批次一致性。"],
-      ["details", "车缝与整理细节", "展示车缝、锁眼、订扣、整烫、包装等细节能力，适合作为质量沟通材料。"],
     ],
     brandReferenceLabel: "Order Experience",
     brandReferenceTitle: "历史订单涉及品牌参考",
@@ -149,7 +131,7 @@ const TRANSLATIONS = {
     capabilitiesIntro: "适合将来做官网、B2B 询盘页、TikTok Shop 供应链背书，也能放入辰博贸易网站作为合作工厂展示。",
     capabilities: [
       ["01", "成衣加工制造", "Garment Manufacturing", "承接衬衫、裙装、裤装、夹克、外套等成衣品类，从样衣、版型调整到批量生产保持稳定交付。"],
-      ["02", "羽绒服与棉服", "Down & Padded Jackets", "近年拓展冬装业务，覆盖裁片、充绒/充棉、绗线、压线、整烫与成品质检等关键工序。"],
+      ["02", "羽绒服与棉服", "Down & Padded Jackets", "近年也承接羽绒服与棉服加工订单，可根据客户需求进行生产评估。"],
       ["03", "20 多年代加工经验", "Japan Order Standard", "家族工厂深耕服装代加工 20 多年，长期服务日单体系，熟悉尺寸、线头、包装和批次稳定等要求。"],
       ["04", "小单快反配合", "Flexible Production", "适合品牌测款、跨境电商试单、买手店补单等需求，可围绕实际款式沟通样衣和起订量。"],
       ["05", "来样来图加工", "OEM Support", "根据客户样衣、工艺单、尺寸表或图片需求进行生产评估，协助拆解工艺和报价。"],
@@ -209,7 +191,7 @@ const TRANSLATIONS = {
       ["工場紹介", "#about"],
       ["生産能力", "#capabilities"],
       ["工場情報", "#facts"],
-      ["サンプル", "#products"],
+      ["ブランド参考", "#products"],
       ["品質管理", "#quality"],
       ["地域工場", "#community"],
       ["工場写真", "#gallery"],
@@ -234,7 +216,7 @@ const TRANSLATIONS = {
         "資料展示",
         [
           ["工場情報", "#facts"],
-          ["サンプル", "#products"],
+          ["ブランド参考", "#products"],
           ["工場写真", "#gallery"],
         ],
       ],
@@ -249,7 +231,7 @@ const TRANSLATIONS = {
     ctaCapabilities: "生産能力を見る",
     ctaGallery: "工場写真を見る",
     nextLinks: {
-      facts: "サンプルを見る",
+      facts: "ブランド参考を見る",
       products: "工場紹介を見る",
       about: "生産能力を見る",
       capabilities: "品質管理を見る",
@@ -276,23 +258,6 @@ const TRANSLATIONS = {
       ["人員構成", "28 名", "縫製、裁断、型紙、最終検品、包装などの職種を含む"],
       ["生産エリア", "約 2,000㎡+", "裁断、縫製工場、後工程、倉庫などを含む"],
       ["対応製品", "既製服 / ジャケット / 中綿 / ダウンウェア", "サンプル、仕様書、注文条件に応じて評価可能"],
-    ],
-    productsLabel: "Sample Works",
-    productsTitleA: "カテゴリー別に見る",
-    productsTitleB: "対応可能なサンプル方向",
-    productsIntro: "現段階では既存の工場写真を使ってサンプル展示の構成を作っています。今後、実際のサンプル写真、平置き写真、ディテール写真を追加すれば、より完成度の高い製品紹介にできます。",
-    productCategories: [
-      ["all", "すべて"],
-      ["padded", "ダウン / 中綿"],
-      ["outerwear", "ジャケット"],
-      ["garments", "既製服加工"],
-      ["details", "工程ディテール"],
-    ],
-    productSamples: [
-      ["padded", "ダウン・中綿ウェア", "裁断、充填、キルティング、縫製、仕上げ、検品まで、注文内容に応じて評価できます。"],
-      ["outerwear", "ジャケット・アウター", "ジャケット、コート、中綿アウターなど、サンプルや仕様書に基づき工程を確認できます。"],
-      ["garments", "シャツ・スカート・パンツ", "シャツ、スカート、パンツ、ワンピースなどの既製服加工に対応し、寸法安定性とロット品質を重視します。"],
-      ["details", "縫製・仕上げディテール", "縫製、ボタンホール、ボタン付け、アイロン、包装などの細部を品質確認材料として提示できます。"],
     ],
     brandReferenceLabel: "Order Experience",
     brandReferenceTitle: "過去注文に関わるブランド参考",
@@ -323,7 +288,7 @@ const TRANSLATIONS = {
     capabilitiesIntro: "公式サイト、B2B問い合わせ、TikTok Shopのサプライチェーン紹介、また辰博貿易サイトの協力工場紹介にも活用できます。",
     capabilities: [
       ["01", "既製服加工", "Garment Manufacturing", "シャツ、スカート、パンツ、ジャケット、アウターなど、サンプル確認から量産まで安定して対応します。"],
-      ["02", "ダウン・中綿ウェア", "Down & Padded Jackets", "近年は冬物事業も拡大し、裁断、充填、キルティング、縫製、仕上げ、検品まで対応します。"],
+      ["02", "ダウン・中綿ウェア", "Down & Padded Jackets", "近年はダウン・中綿ウェアの加工注文にも対応し、お客様の要件に応じて生産可否を確認します。"],
       ["03", "20年以上のOEM経験", "Japan Order Standard", "20年以上の服装OEM経験を持ち、日本向け注文で求められる寸法、糸処理、包装、ロット安定性を理解しています。"],
       ["04", "小ロット・迅速対応", "Flexible Production", "ブランドのテスト販売、越境ECの試作、セレクトショップの追加生産など、実際の仕様に合わせて相談できます。"],
       ["05", "サンプル・画像から加工", "OEM Support", "サンプル、仕様書、サイズ表、写真をもとに生産可否、工程、見積もりを評価します。"],
@@ -383,7 +348,7 @@ const TRANSLATIONS = {
       ["About", "#about"],
       ["Capabilities", "#capabilities"],
       ["Facts", "#facts"],
-      ["Samples", "#products"],
+      ["Brand References", "#products"],
       ["Quality", "#quality"],
       ["Community", "#community"],
       ["Gallery", "#gallery"],
@@ -408,7 +373,7 @@ const TRANSLATIONS = {
         "Showcase",
         [
           ["Factory Facts", "#facts"],
-          ["Sample Works", "#products"],
+          ["Brand References", "#products"],
           ["Factory Gallery", "#gallery"],
         ],
       ],
@@ -423,7 +388,7 @@ const TRANSLATIONS = {
     ctaCapabilities: "View Capabilities",
     ctaGallery: "View Factory Gallery",
     nextLinks: {
-      facts: "Continue to Sample Works",
+      facts: "Continue to Brand References",
       products: "Learn About the Factory",
       about: "View Manufacturing Scope",
       capabilities: "View Quality Process",
@@ -450,23 +415,6 @@ const TRANSLATIONS = {
       ["Team setup", "28 people", "Including sewing, cutting, pattern/CAD, final inspection and packing roles"],
       ["Production areas", "Approx. 2,000㎡+", "Covering cutting, sewing workshop, finishing and warehouse areas"],
       ["Product scope", "Garments / jackets / padded wear / down jackets", "Production can be evaluated based on samples, tech packs and order requirements"],
-    ],
-    productsLabel: "Sample Works",
-    productsTitleA: "Product directions",
-    productsTitleB: "by category",
-    productsIntro: "This first version uses existing factory photos as placeholders for the sample-work structure. Once real sample photos, flat lays and detail shots are available, this section can become a full product showcase.",
-    productCategories: [
-      ["all", "All"],
-      ["padded", "Down / Padded"],
-      ["outerwear", "Outerwear"],
-      ["garments", "Garments"],
-      ["details", "Details"],
-    ],
-    productSamples: [
-      ["padded", "Down & padded jackets", "Order evaluation can cover cutting, filling, quilting, stitching, finishing and final inspection."],
-      ["outerwear", "Jackets & outerwear", "Suitable for jackets, coats and padded outerwear, with process review based on samples and tech packs."],
-      ["garments", "Shirts, skirts & trousers", "Supports garment processing for shirts, skirts, trousers and dresses, with focus on measurement stability and batch consistency."],
-      ["details", "Sewing & finishing details", "Sewing, buttonholes, button attaching, pressing and packing details can be used as quality communication material."],
     ],
     brandReferenceLabel: "Order Experience",
     brandReferenceTitle: "Brand references from past order records",
@@ -497,7 +445,7 @@ const TRANSLATIONS = {
     capabilitiesIntro: "Suitable for a factory website, B2B inquiry page, TikTok Shop supply-chain proof, and future supplier presentation on Chenbo Trading's website.",
     capabilities: [
       ["01", "Garment Manufacturing", "Garment Manufacturing", "Shirts, skirts, trousers, jackets, coats and related apparel categories, from sample review and pattern adjustment to stable bulk production."],
-      ["02", "Down & Padded Jackets", "Down & Padded Jackets", "Expanded winterwear capability covering cutting, filling, quilting, sewing, finishing and final inspection."],
+      ["02", "Down & Padded Jackets", "Down & Padded Jackets", "We also accept down and padded jacket processing orders, subject to production review based on customer requirements."],
       ["03", "20+ Years OEM Experience", "Japan Order Standard", "Over 20 years of apparel OEM experience, including Japan-oriented orders with attention to measurements, thread trimming, packaging and batch consistency."],
       ["04", "Flexible Small Orders", "Flexible Production", "Suitable for brand testing, cross-border e-commerce trial orders and boutique replenishment, with sample and MOQ discussion based on actual styles."],
       ["05", "Sample & Reference OEM", "OEM Support", "Production evaluation based on samples, tech packs, size charts or reference images, including process breakdown and quotation support."],
@@ -560,23 +508,12 @@ const GALLERY_IMAGES = [
   factoryImage("4aa57aa357fb7186afc2850c8779cabe.jpg"),
 ];
 
-const PRODUCT_IMAGES = [
-  factoryImage("4863f0d9a4fc3b1f25abf8022c198dfd.jpg"),
-  factoryImage("eaa9937535bceb6ae1088be4722adb41.jpg"),
-  factoryImage("06d3c11dbdd3c1ec81188204af7d4a8d.jpg"),
-  factoryImage("fb3ac09c58fc1aa784b83a3387137343.jpg"),
-];
-
 export default function App() {
   const [language, setLanguage] = useState<Lang>("zh");
-  const [activeProductCategory, setActiveProductCategory] = useState<ProductCategory>("all");
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const t = TRANSLATIONS[language];
-  const filteredProductSamples = t.productSamples
-    .map((sample, index) => ({ sample, image: PRODUCT_IMAGES[index] }))
-    .filter(({ sample }) => activeProductCategory === "all" || sample[0] === activeProductCategory);
 
   useEffect(() => {
     document.documentElement.lang = t.htmlLang;
@@ -789,84 +726,35 @@ export default function App() {
           <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
             <div className="mb-12 grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
               <div className="reveal">
-                <SectionLabel label={t.productsLabel} />
+                <SectionLabel label={t.brandReferenceLabel} />
                 <h2 className="text-4xl lg:text-5xl font-light leading-tight" style={{ fontFamily: "'Noto Serif SC', serif", fontWeight: 300 }}>
-                  {t.productsTitleA}
-                  <br />
-                  <span className="text-primary">{t.productsTitleB}</span>
+                  {t.brandReferenceTitle}
                 </h2>
               </div>
-              <p className="reveal text-sm leading-8 text-muted-foreground">{t.productsIntro}</p>
+              <p className="reveal text-sm leading-8 text-muted-foreground">{t.brandReferenceIntro}</p>
             </div>
 
-            <div className="reveal mb-10 flex flex-wrap gap-3">
-              {t.productCategories.map(([category, label]) => (
-                <button
-                  key={category}
-                  onClick={() => setActiveProductCategory(category as ProductCategory)}
-                  className={`px-4 py-2 text-xs tracking-widest transition-colors ${
-                    activeProductCategory === category
-                      ? "bg-primary text-primary-foreground"
-                      : "border border-border bg-white/80 text-muted-foreground hover:border-primary/50 hover:text-foreground"
-                  }`}
-                >
-                  {label}
-                </button>
-              ))}
-            </div>
+            <div className="reveal grid grid-cols-2 gap-px bg-border/70 shadow-xl shadow-slate-200/50 sm:grid-cols-3 xl:grid-cols-5">
+              {t.brandReferences.map(([brand, url]) => {
+                const content = <span className="text-sm font-semibold tracking-[0.18em] text-slate-700 transition-colors group-hover:text-primary">{brand}</span>;
 
-            <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-              {filteredProductSamples.map(({ sample, image }) => {
-                const [category, title, desc] = sample;
-                return (
-                  <article key={title} className="reveal group overflow-hidden bg-white/88 shadow-lg shadow-slate-200/60 backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:bg-white hover:shadow-2xl hover:shadow-slate-300/70">
-                    <div className="aspect-[4/3] overflow-hidden bg-muted">
-                      <img src={image} alt={title} className="h-full w-full object-cover object-center scale-105 transition-transform duration-700 group-hover:scale-110" />
-                    </div>
-                    <div className="p-6">
-                      <div className="text-[10px] tracking-[0.28em] text-primary/70 uppercase">{category}</div>
-                      <h3 className="mt-3 text-xl text-foreground" style={{ fontFamily: "'Noto Serif SC', serif" }}>
-                        {title}
-                      </h3>
-                      <p className="mt-4 text-sm leading-7 text-muted-foreground">{desc}</p>
-                    </div>
-                  </article>
+                return url ? (
+                  <a
+                    key={brand}
+                    href={url}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`${brand} official website`}
+                    className="group flex min-h-24 items-center justify-center bg-white/86 px-4 py-5 text-center backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:bg-white hover:shadow-lg hover:shadow-slate-200"
+                  >
+                    {content}
+                  </a>
+                ) : (
+                  <div key={brand} className="group flex min-h-24 items-center justify-center bg-white/70 px-4 py-5 text-center backdrop-blur-sm">
+                    {content}
+                  </div>
                 );
               })}
-            </div>
-
-            <div className="reveal mt-12 border border-white/70 bg-white/78 p-6 shadow-xl shadow-slate-200/50 backdrop-blur-md lg:p-8">
-              <div className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
-                <div>
-                  <p className="text-[10px] tracking-[0.28em] text-primary/70 uppercase">{t.brandReferenceLabel}</p>
-                  <h3 className="mt-3 text-2xl text-foreground" style={{ fontFamily: "'Noto Serif SC', serif" }}>
-                    {t.brandReferenceTitle}
-                  </h3>
-                  <p className="mt-4 text-xs leading-7 text-muted-foreground">{t.brandReferenceIntro}</p>
-                </div>
-                <div className="grid grid-cols-2 gap-px bg-border/70 sm:grid-cols-3 xl:grid-cols-4">
-                  {t.brandReferences.map(([brand, url]) => {
-                    const content = <span className="text-sm font-semibold tracking-[0.18em] text-slate-700 transition-colors group-hover:text-primary">{brand}</span>;
-
-                    return url ? (
-                      <a
-                        key={brand}
-                        href={url}
-                        target="_blank"
-                        rel="noreferrer"
-                        aria-label={`${brand} official website`}
-                        className="group flex min-h-20 items-center justify-center bg-white/86 px-4 py-5 text-center transition-all duration-500 hover:-translate-y-1 hover:bg-white hover:shadow-lg hover:shadow-slate-200"
-                      >
-                        {content}
-                      </a>
-                    ) : (
-                      <div key={brand} className="group flex min-h-20 items-center justify-center bg-white/70 px-4 py-5 text-center">
-                        {content}
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
             </div>
             <SectionBridge label={t.nextLinks.products} href="#about" onNavigate={scrollTo} />
           </div>

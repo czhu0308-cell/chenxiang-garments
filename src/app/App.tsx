@@ -10,15 +10,18 @@ const LANGUAGES: { code: Lang; label: string }[] = [
   { code: "en", label: "English" },
 ];
 
+const factoryImage = (filename: string) =>
+  `${import.meta.env.BASE_URL}factory/${filename}`;
+
 const FACTORY_IMAGES = {
-  hero: "/factory/hero-micro-factory.jpg",
-  facts: "/factory/facts-workshop-bg.jpg",
-  products: "/factory/products-samples-bg.jpg",
-  about: "/factory/a0da0333ab5da76b53655e90f666d07d.jpg",
-  line: "/factory/06d3c11dbdd3c1ec81188204af7d4a8d.jpg",
-  detail: "/factory/461c08776a8dda99f37e04c741bd1f35.jpg",
-  jacket: "/factory/4863f0d9a4fc3b1f25abf8022c198dfd.jpg",
-  inspection: "/factory/fb3ac09c58fc1aa784b83a3387137343.jpg",
+  hero: factoryImage("hero-micro-factory.jpg"),
+  facts: factoryImage("facts-workshop-bg.jpg"),
+  products: factoryImage("products-samples-bg.jpg"),
+  about: factoryImage("a0da0333ab5da76b53655e90f666d07d.jpg"),
+  line: factoryImage("06d3c11dbdd3c1ec81188204af7d4a8d.jpg"),
+  detail: factoryImage("461c08776a8dda99f37e04c741bd1f35.jpg"),
+  jacket: factoryImage("4863f0d9a4fc3b1f25abf8022c198dfd.jpg"),
+  inspection: factoryImage("fb3ac09c58fc1aa784b83a3387137343.jpg"),
 };
 
 const TRANSLATIONS = {
@@ -547,21 +550,21 @@ const TRANSLATIONS = {
 } as const;
 
 const GALLERY_IMAGES = [
-  "/factory/cc8fca1c35454b79677a3f15c9c48e91.jpg",
-  "/factory/22075cc6a0d47362d8d6f792f0ba53df.jpg",
-  "/factory/36f12e292673c08733b8e1d1d2c8131b.jpg",
-  "/factory/c7a165e82b9b8a01660500813360999b.jpg",
-  "/factory/d65fdf6f7ba6c25af3d319461d20a086.jpg",
-  "/factory/eaa9937535bceb6ae1088be4722adb41.jpg",
-  "/factory/e38232e852cf70d1b4d3792fcc9184d0.jpg",
-  "/factory/4aa57aa357fb7186afc2850c8779cabe.jpg",
+  factoryImage("cc8fca1c35454b79677a3f15c9c48e91.jpg"),
+  factoryImage("22075cc6a0d47362d8d6f792f0ba53df.jpg"),
+  factoryImage("36f12e292673c08733b8e1d1d2c8131b.jpg"),
+  factoryImage("c7a165e82b9b8a01660500813360999b.jpg"),
+  factoryImage("d65fdf6f7ba6c25af3d319461d20a086.jpg"),
+  factoryImage("eaa9937535bceb6ae1088be4722adb41.jpg"),
+  factoryImage("e38232e852cf70d1b4d3792fcc9184d0.jpg"),
+  factoryImage("4aa57aa357fb7186afc2850c8779cabe.jpg"),
 ];
 
 const PRODUCT_IMAGES = [
-  "/factory/4863f0d9a4fc3b1f25abf8022c198dfd.jpg",
-  "/factory/eaa9937535bceb6ae1088be4722adb41.jpg",
-  "/factory/06d3c11dbdd3c1ec81188204af7d4a8d.jpg",
-  "/factory/fb3ac09c58fc1aa784b83a3387137343.jpg",
+  factoryImage("4863f0d9a4fc3b1f25abf8022c198dfd.jpg"),
+  factoryImage("eaa9937535bceb6ae1088be4722adb41.jpg"),
+  factoryImage("06d3c11dbdd3c1ec81188204af7d4a8d.jpg"),
+  factoryImage("fb3ac09c58fc1aa784b83a3387137343.jpg"),
 ];
 
 export default function App() {

@@ -9,7 +9,7 @@ const LANGUAGES: { code: Lang; label: string }[] = [
   { code: "en", label: "English" },
 ];
 
-const INQUIRY_EMAIL = "";
+const INQUIRY_EMAIL = "czhu008@gmail.com";
 
 const factoryImage = (filename: string) =>
   `${import.meta.env.BASE_URL}factory/${filename}`;

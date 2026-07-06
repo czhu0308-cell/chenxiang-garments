@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ArrowRight, Check, Mail, Menu, MessageCircle, UserRound, X } from "lucide-react";
+import { ArrowRight, Check, Mail, Menu, MessageCircle, Phone, UserRound, X } from "lucide-react";
 
 type Lang = "zh" | "ja" | "en";
 
@@ -10,6 +10,8 @@ const LANGUAGES: { code: Lang; label: string }[] = [
 ];
 
 const CONTACT_EMAIL = "czhu008@gmail.com";
+const CHINA_PHONE = "+8618795772919";
+const CHINA_PHONE_DISPLAY = "+86 187 9577 2919";
 const WHATSAPP_NUMBER = "6594477487";
 const WHATSAPP_DISPLAY = "+65 9447 7487";
 
@@ -184,6 +186,8 @@ const TRANSLATIONS = {
     emailAction: "发送邮件",
     contactPersonLabel: "联系人",
     contactPerson: "朱先生",
+    phoneLabel: "中国联系电话",
+    phoneAction: "拨打电话",
     whatsappAction: "打开 WhatsApp",
     contactNote: "联系时建议提供产品类别、预计数量、目标交期，并附上样衣照片、尺寸表或工艺单，以便更快评估。",
     footer: "© 2026 如皋市晨翔服装有限公司 · 版权所有",
@@ -344,6 +348,8 @@ const TRANSLATIONS = {
     emailAction: "メールを送る",
     contactPersonLabel: "担当者",
     contactPerson: "朱様",
+    phoneLabel: "中国電話",
+    phoneAction: "電話をかける",
     whatsappAction: "WhatsAppを開く",
     contactNote: "品目、予定数量、希望納期をご記載のうえ、サンプル写真、サイズ表、仕様書を添付いただくと、より迅速に確認できます。",
     footer: "© 2026 如皋市晨翔服装有限公司 · All Rights Reserved",
@@ -504,6 +510,8 @@ const TRANSLATIONS = {
     emailAction: "Send Email",
     contactPersonLabel: "Contact Person",
     contactPerson: "Mr. Zhu",
+    phoneLabel: "China Phone",
+    phoneAction: "Call",
     whatsappAction: "Open WhatsApp",
     contactNote: "For a faster review, include the product category, estimated quantity and target delivery date, together with sample photos, a size chart or a tech pack.",
     footer: "© 2026 Rugao Chenxiang Garments Co., Ltd. · All Rights Reserved",
@@ -1004,6 +1012,20 @@ export default function App() {
                     <span className="mt-1 block text-sm text-foreground">{t.contactPerson}</span>
                   </span>
                 </div>
+
+                <a
+                  href={`tel:${CHINA_PHONE}`}
+                  className="group flex items-center gap-5 border border-border bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg hover:shadow-slate-200/60"
+                >
+                  <span className="flex size-11 shrink-0 items-center justify-center bg-primary/10 text-primary">
+                    <Phone size={19} />
+                  </span>
+                  <span className="min-w-0 flex-1">
+                    <span className="block text-[10px] tracking-[0.22em] text-primary/70 uppercase">{t.phoneLabel}</span>
+                    <span className="mt-1 block text-sm text-foreground">{CHINA_PHONE_DISPLAY}</span>
+                  </span>
+                  <span className="hidden text-[10px] tracking-widest text-muted-foreground transition-colors group-hover:text-primary sm:block">{t.phoneAction}</span>
+                </a>
 
                 <a
                   href={`https://wa.me/${WHATSAPP_NUMBER}`}

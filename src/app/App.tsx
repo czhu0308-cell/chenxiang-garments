@@ -1,5 +1,5 @@
-import { type FormEvent, type ReactNode, useEffect, useState } from "react";
-import { ArrowRight, Check, Menu, X } from "lucide-react";
+import { useEffect, useState } from "react";
+import { ArrowRight, Check, Mail, Menu, MessageCircle, UserRound, X } from "lucide-react";
 
 type Lang = "zh" | "ja" | "en";
 
@@ -9,7 +9,9 @@ const LANGUAGES: { code: Lang; label: string }[] = [
   { code: "en", label: "English" },
 ];
 
-const INQUIRY_EMAIL = "czhu008@gmail.com";
+const CONTACT_EMAIL = "czhu008@gmail.com";
+const WHATSAPP_NUMBER = "6594477487";
+const WHATSAPP_DISPLAY = "+65 9447 7487";
 
 const factoryImage = (filename: string) =>
   `${import.meta.env.BASE_URL}factory/${filename}`;
@@ -31,7 +33,7 @@ const TRANSLATIONS = {
     pageTitle: "如皋市晨翔服装有限公司 | 服装代加工制造工厂",
     brand: "晨翔服装",
     brandSub: "Chenxiang Garments · Rugao",
-    inquiry: "发送询盘",
+    contactAction: "联系我们",
     nav: [
       ["工厂介绍", "#about"],
       ["制造能力", "#capabilities"],
@@ -95,7 +97,7 @@ const TRANSLATIONS = {
     factsLabel: "Factory Snapshot",
     factsTitleA: "来自评估资料的",
     factsTitleB: "真实工厂信息",
-    factsIntro: "以下信息根据现有工厂评估表和工厂卡片整理，正式合作前可按客户验厂或询盘要求复核更新。",
+    factsIntro: "以下信息根据现有工厂评估表和工厂卡片整理，正式合作前可按客户验厂或订单评估要求复核更新。",
     facts: [
       ["创办时间", "2007 年 1 月 11 日", "晨翔工厂评估表记录"],
       ["月产量", "6,000 - 10,000 件", "适用于成衣、夹克、棉衣、羽绒服等品类"],
@@ -167,35 +169,23 @@ const TRANSLATIONS = {
     galleryTitleB: "与生产细节",
     galleryIntro: "以下照片拍摄于晨翔生产现场，呈现车间环境、缝制作业、设备配置、检验环节与日常生产管理。",
     galleryLabels: ["生产车间", "缝制工位", "工艺细节", "车间设备", "成衣检查", "现场陈列", "员工操作", "现场管理"],
-    contactLabel: "Business Inquiry",
-    contactTitleA: "有样衣、有工艺单，",
-    contactTitleB: "就可以开始评估",
-    contactText: "请填写基本订单信息，我们会据此确认品类、数量、工艺和交期是否适合，并进一步沟通样衣、尺寸表或工艺单。",
+    contactLabel: "Contact",
+    contactTitleA: "直接联系，",
+    contactTitleB: "沟通生产合作",
+    contactText: "如有样衣、尺寸表或工艺单，欢迎通过邮箱或 WhatsApp 联系。我们会根据品类、数量、工艺和交期要求进行初步评估。",
     contactItems: [
       ["工厂名称", "如皋市晨翔服装有限公司"],
       ["所在地区", "江苏省如皋市城南街道马塘社区"],
       ["主营品类", "成衣加工、羽绒服、棉服及相关服装制造"],
       ["合作方式", "OEM 加工、样衣开发、小批量试单、外贸订单协作"],
     ],
-    inquiryTitle: "提交生产询盘",
-    inquiryForm: {
-      name: "联系人姓名",
-      company: "公司 / 品牌",
-      email: "联系邮箱",
-      region: "国家或地区",
-      category: "目标品类",
-      categoryPlaceholder: "请选择品类",
-      categories: ["成衣加工", "夹克与外套", "羽绒服 / 棉服", "其他服装"],
-      quantity: "预计数量",
-      delivery: "期望交期",
-      materialLink: "资料链接（选填）",
-      requirements: "需求说明",
-      requirementsPlaceholder: "请说明款式、面料、工艺、尺码、包装或目标市场等信息",
-      submit: "生成询盘邮件",
-      note: "本网站不会存储您填写的信息。提交后将整理并复制询盘内容，同时打开您的默认邮件应用；样衣、尺寸表和工艺单可在邮件中作为附件添加。",
-      ready: "询盘内容已整理并复制，请在邮件应用中确认收件人和附件后发送。",
-      subject: "晨翔服装 OEM 询盘",
-    },
+    contactMethodsTitle: "联系方式",
+    emailLabel: "公司邮箱",
+    emailAction: "发送邮件",
+    contactPersonLabel: "联系人",
+    contactPerson: "朱先生",
+    whatsappAction: "打开 WhatsApp",
+    contactNote: "联系时建议提供产品类别、预计数量、目标交期，并附上样衣照片、尺寸表或工艺单，以便更快评估。",
     footer: "© 2026 如皋市晨翔服装有限公司 · 版权所有",
   },
   ja: {
@@ -203,7 +193,7 @@ const TRANSLATIONS = {
     pageTitle: "如皋市晨翔服装有限公司 | アパレルOEM工場",
     brand: "晨翔服装",
     brandSub: "Chenxiang Garments · Rugao",
-    inquiry: "お問い合わせ",
+    contactAction: "お問い合わせ",
     nav: [
       ["工場紹介", "#about"],
       ["生産能力", "#capabilities"],
@@ -339,35 +329,23 @@ const TRANSLATIONS = {
     galleryTitleB: "と生産ディテール",
     galleryIntro: "以下の写真は晨翔の生産現場で撮影され、工場環境、縫製作業、設備、検品工程、日常の生産管理を紹介しています。",
     galleryLabels: ["生産現場", "縫製作業", "工程ディテール", "工場設備", "製品検査", "現場展示", "作業風景", "現場管理"],
-    contactLabel: "Business Inquiry",
-    contactTitleA: "サンプルや仕様書があれば、",
-    contactTitleB: "評価を始められます",
-    contactText: "基本的な注文情報をご入力ください。品目、数量、仕様、納期を確認し、サンプル、サイズ表、仕様書についてご相談します。",
+    contactLabel: "Contact",
+    contactTitleA: "直接連絡して、",
+    contactTitleB: "生産について相談する",
+    contactText: "サンプル、サイズ表、仕様書をお持ちの場合は、メールまたは WhatsApp でご連絡ください。品目、数量、仕様、納期に基づいて初期評価を行います。",
     contactItems: [
       ["工場名", "如皋市晨翔服装有限公司"],
       ["所在地", "江蘇省如皋市城南街道馬塘社区"],
       ["主な品目", "既製服加工、ダウンウェア、中綿ウェア、関連服装製造"],
       ["協力方式", "OEM加工、サンプル開発、小ロット試作、輸出案件連携"],
     ],
-    inquiryTitle: "生産のお問い合わせ",
-    inquiryForm: {
-      name: "お名前",
-      company: "会社名 / ブランド名",
-      email: "メールアドレス",
-      region: "国・地域",
-      category: "対象品目",
-      categoryPlaceholder: "品目を選択",
-      categories: ["既製服加工", "ジャケット・アウター", "ダウン / 中綿ウェア", "その他"],
-      quantity: "予定数量",
-      delivery: "希望納期",
-      materialLink: "資料リンク（任意）",
-      requirements: "ご要望",
-      requirementsPlaceholder: "デザイン、生地、仕様、サイズ、包装、対象市場などをご記入ください",
-      submit: "問い合わせメールを作成",
-      note: "本サイトは入力内容を保存しません。送信すると問い合わせ内容を整理してコピーし、標準メールアプリを開きます。サンプル、サイズ表、仕様書はメールに添付できます。",
-      ready: "問い合わせ内容をコピーしました。メールで宛先と添付資料をご確認のうえ送信してください。",
-      subject: "晨翔服装 OEM お問い合わせ",
-    },
+    contactMethodsTitle: "連絡先",
+    emailLabel: "会社メール",
+    emailAction: "メールを送る",
+    contactPersonLabel: "担当者",
+    contactPerson: "朱様",
+    whatsappAction: "WhatsAppを開く",
+    contactNote: "品目、予定数量、希望納期をご記載のうえ、サンプル写真、サイズ表、仕様書を添付いただくと、より迅速に確認できます。",
     footer: "© 2026 如皋市晨翔服装有限公司 · All Rights Reserved",
   },
   en: {
@@ -375,7 +353,7 @@ const TRANSLATIONS = {
     pageTitle: "Rugao Chenxiang Garments Co., Ltd. | Apparel OEM Manufacturer",
     brand: "Chenxiang Garments",
     brandSub: "Chenxiang Garments · Rugao",
-    inquiry: "Send Inquiry",
+    contactAction: "Contact Us",
     nav: [
       ["About", "#about"],
       ["Capabilities", "#capabilities"],
@@ -511,35 +489,23 @@ const TRANSLATIONS = {
     galleryTitleB: "and production details",
     galleryIntro: "The following photographs were taken at Chenxiang's production site and show the workshop environment, sewing operations, equipment, inspection activities and daily production management.",
     galleryLabels: ["Production floor", "Sewing station", "Process detail", "Workshop equipment", "Garment inspection", "Workshop display", "Operator at work", "Shop-floor management"],
-    contactLabel: "Business Inquiry",
-    contactTitleA: "With a sample or tech pack,",
-    contactTitleB: "we can start evaluation",
-    contactText: "Share the basic order details below. We will review the category, quantity, specifications and timeline before discussing samples, size charts or tech packs.",
+    contactLabel: "Contact",
+    contactTitleA: "Contact us directly",
+    contactTitleB: "to discuss production",
+    contactText: "If you have a sample, size chart or tech pack, contact us by email or WhatsApp. We will make an initial assessment based on the category, quantity, specifications and timeline.",
     contactItems: [
       ["Factory", "Rugao Chenxiang Garments Co., Ltd."],
       ["Location", "Matang Community, Chengnan Subdistrict, Rugao, Jiangsu"],
       ["Main categories", "Garment processing, down jackets, padded jackets and related apparel manufacturing"],
       ["Cooperation", "OEM production, sample development, small trial orders and export-order coordination"],
     ],
-    inquiryTitle: "Send a Production Inquiry",
-    inquiryForm: {
-      name: "Contact name",
-      company: "Company / brand",
-      email: "Email",
-      region: "Country or region",
-      category: "Product category",
-      categoryPlaceholder: "Select a category",
-      categories: ["Garment processing", "Jackets & outerwear", "Down / padded jackets", "Other apparel"],
-      quantity: "Estimated quantity",
-      delivery: "Target delivery date",
-      materialLink: "Material link (optional)",
-      requirements: "Requirements",
-      requirementsPlaceholder: "Describe the style, fabric, construction, sizing, packing or target market",
-      submit: "Create Inquiry Email",
-      note: "This website does not store the information you enter. Submitting prepares and copies the inquiry, then opens your default email app; samples, size charts and tech packs can be added as attachments.",
-      ready: "The inquiry has been prepared and copied. Confirm the recipient and attachments in your email app before sending.",
-      subject: "Chenxiang Garments OEM Inquiry",
-    },
+    contactMethodsTitle: "Direct Contact",
+    emailLabel: "Company Email",
+    emailAction: "Send Email",
+    contactPersonLabel: "Contact Person",
+    contactPerson: "Mr. Zhu",
+    whatsappAction: "Open WhatsApp",
+    contactNote: "For a faster review, include the product category, estimated quantity and target delivery date, together with sample photos, a size chart or a tech pack.",
     footer: "© 2026 Rugao Chenxiang Garments Co., Ltd. · All Rights Reserved",
   },
 } as const;
@@ -560,7 +526,6 @@ export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [scrollY, setScrollY] = useState(0);
-  const [inquiryReady, setInquiryReady] = useState(false);
   const t = TRANSLATIONS[language];
 
   useEffect(() => {
@@ -605,44 +570,6 @@ export default function App() {
   const chooseLanguage = (nextLanguage: Lang) => {
     setLanguage(nextLanguage);
     setMenuOpen(false);
-    setInquiryReady(false);
-  };
-
-  const handleInquirySubmit = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-    const data = new FormData(event.currentTarget);
-    const value = (name: string) => String(data.get(name) ?? "").trim();
-    const body = [
-      `${t.inquiryForm.name}: ${value("name")}`,
-      `${t.inquiryForm.company}: ${value("company") || "-"}`,
-      `${t.inquiryForm.email}: ${value("email")}`,
-      `${t.inquiryForm.region}: ${value("region") || "-"}`,
-      `${t.inquiryForm.category}: ${value("category")}`,
-      `${t.inquiryForm.quantity}: ${value("quantity") || "-"}`,
-      `${t.inquiryForm.delivery}: ${value("delivery") || "-"}`,
-      `${t.inquiryForm.materialLink}: ${value("materialLink") || "-"}`,
-      "",
-      `${t.inquiryForm.requirements}:`,
-      value("requirements"),
-    ].join("\n");
-
-    try {
-      await navigator.clipboard.writeText(body);
-    } catch {
-      const textarea = document.createElement("textarea");
-      textarea.value = body;
-      textarea.style.position = "fixed";
-      textarea.style.opacity = "0";
-      document.body.appendChild(textarea);
-      textarea.select();
-      document.execCommand("copy");
-      textarea.remove();
-    }
-
-    setInquiryReady(true);
-    const subject = `${t.inquiryForm.subject} - ${value("company") || value("name")}`;
-    window.location.href = `mailto:${INQUIRY_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
   return (
@@ -666,7 +593,7 @@ export default function App() {
             ))}
             <LanguageSwitcher language={language} onChange={chooseLanguage} />
             <button onClick={() => scrollTo("#contact")} className="ml-2 px-5 py-2 text-xs tracking-widest bg-primary text-primary-foreground hover:bg-primary/90 transition-colors">
-              {t.inquiry}
+              {t.contactAction}
             </button>
           </nav>
 
@@ -694,7 +621,7 @@ export default function App() {
               onClick={() => scrollTo("#contact")}
               className="mt-1 w-full bg-primary px-5 py-3 text-xs tracking-widest text-primary-foreground transition-colors hover:bg-primary/90"
             >
-              {t.inquiry}
+              {t.contactAction}
             </button>
           </div>
         )}
@@ -1048,71 +975,55 @@ export default function App() {
               </div>
             </div>
 
-            <form onSubmit={handleInquirySubmit} className="reveal bg-card border border-border p-8 lg:p-10 shadow-xl shadow-slate-100">
+            <div className="reveal bg-card border border-border p-8 lg:p-10 shadow-xl shadow-slate-100">
               <h3 className="text-xl mb-6" style={{ fontFamily: "'Noto Serif SC', serif" }}>
-                {t.inquiryTitle}
+                {t.contactMethodsTitle}
               </h3>
 
-              <div className="grid gap-5 sm:grid-cols-2">
-                <InquiryField label={t.inquiryForm.name} required>
-                  <input name="name" required autoComplete="name" className="inquiry-input" />
-                </InquiryField>
-                <InquiryField label={t.inquiryForm.company}>
-                  <input name="company" autoComplete="organization" className="inquiry-input" />
-                </InquiryField>
-                <InquiryField label={t.inquiryForm.email} required>
-                  <input name="email" type="email" required autoComplete="email" className="inquiry-input" />
-                </InquiryField>
-                <InquiryField label={t.inquiryForm.region}>
-                  <input name="region" autoComplete="country-name" className="inquiry-input" />
-                </InquiryField>
-                <InquiryField label={t.inquiryForm.category} required>
-                  <select name="category" required defaultValue="" className="inquiry-input">
-                    <option value="" disabled>
-                      {t.inquiryForm.categoryPlaceholder}
-                    </option>
-                    {t.inquiryForm.categories.map((category) => (
-                      <option key={category} value={category}>
-                        {category}
-                      </option>
-                    ))}
-                  </select>
-                </InquiryField>
-                <InquiryField label={t.inquiryForm.quantity}>
-                  <input name="quantity" inputMode="numeric" className="inquiry-input" />
-                </InquiryField>
-                <InquiryField label={t.inquiryForm.delivery}>
-                  <input name="delivery" type="date" className="inquiry-input" />
-                </InquiryField>
-                <InquiryField label={t.inquiryForm.materialLink}>
-                  <input name="materialLink" type="url" inputMode="url" placeholder="https://" className="inquiry-input" />
-                </InquiryField>
+              <div className="space-y-4">
+                <a
+                  href={`mailto:${CONTACT_EMAIL}`}
+                  className="group flex items-center gap-5 border border-border bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg hover:shadow-slate-200/60"
+                >
+                  <span className="flex size-11 shrink-0 items-center justify-center bg-primary/10 text-primary">
+                    <Mail size={19} />
+                  </span>
+                  <span className="min-w-0 flex-1">
+                    <span className="block text-[10px] tracking-[0.22em] text-primary/70 uppercase">{t.emailLabel}</span>
+                    <span className="mt-1 block break-all text-sm text-foreground">{CONTACT_EMAIL}</span>
+                  </span>
+                  <span className="hidden text-[10px] tracking-widest text-muted-foreground transition-colors group-hover:text-primary sm:block">{t.emailAction}</span>
+                </a>
+
+                <div className="flex items-center gap-5 border border-border bg-white p-5">
+                  <span className="flex size-11 shrink-0 items-center justify-center bg-primary/10 text-primary">
+                    <UserRound size={19} />
+                  </span>
+                  <span>
+                    <span className="block text-[10px] tracking-[0.22em] text-primary/70 uppercase">{t.contactPersonLabel}</span>
+                    <span className="mt-1 block text-sm text-foreground">{t.contactPerson}</span>
+                  </span>
+                </div>
+
+                <a
+                  href={`https://wa.me/${WHATSAPP_NUMBER}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group flex items-center gap-5 border border-border bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg hover:shadow-slate-200/60"
+                >
+                  <span className="flex size-11 shrink-0 items-center justify-center bg-primary/10 text-primary">
+                    <MessageCircle size={19} />
+                  </span>
+                  <span className="min-w-0 flex-1">
+                    <span className="block text-[10px] tracking-[0.22em] text-primary/70 uppercase">WhatsApp</span>
+                    <span className="mt-1 block text-sm text-foreground">{WHATSAPP_DISPLAY}</span>
+                  </span>
+                  <span className="hidden text-[10px] tracking-widest text-muted-foreground transition-colors group-hover:text-primary sm:block">{t.whatsappAction}</span>
+                </a>
               </div>
 
-              <div className="mt-5">
-                <InquiryField label={t.inquiryForm.requirements} required>
-                  <textarea
-                    name="requirements"
-                    required
-                    rows={5}
-                    placeholder={t.inquiryForm.requirementsPlaceholder}
-                    className="inquiry-input min-h-36 resize-y"
-                  />
-                </InquiryField>
-              </div>
-
-              <p className="mt-5 text-xs leading-6 text-muted-foreground">{t.inquiryForm.note}</p>
-              {inquiryReady && (
-                <p role="status" className="mt-4 border-l-2 border-primary bg-primary/5 px-4 py-3 text-xs leading-6 text-foreground">
-                  {t.inquiryForm.ready}
-                </p>
-              )}
-
-              <button type="submit" className="mt-7 flex w-full items-center justify-center gap-3 bg-primary py-4 text-xs tracking-widest text-primary-foreground transition-colors hover:bg-primary/90">
-                {t.inquiryForm.submit}
-                <ArrowRight size={14} />
-              </button>
-            </form>
+              <p className="mt-6 border-l-2 border-primary/50 pl-4 text-xs leading-6 text-muted-foreground">{t.contactNote}</p>
+            </div>
           </div>
         </section>
       </main>
@@ -1225,18 +1136,6 @@ function SectionBridge({ label, href, onNavigate }: { label: string; href: strin
         <ArrowRight size={13} className="text-primary transition-transform group-hover:translate-x-1" />
       </button>
     </div>
-  );
-}
-
-function InquiryField({ label, required = false, children }: { label: string; required?: boolean; children: ReactNode }) {
-  return (
-    <label className="block">
-      <span className="mb-2 block text-[10px] tracking-[0.2em] text-muted-foreground">
-        {label}
-        {required && <span className="ml-1 text-primary">*</span>}
-      </span>
-      {children}
-    </label>
   );
 }
 

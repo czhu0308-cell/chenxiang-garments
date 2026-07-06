@@ -170,7 +170,7 @@ const TRANSLATIONS = {
     galleryTitleA: "工厂实景",
     galleryTitleB: "与生产细节",
     galleryIntro: "以下照片拍摄于晨翔生产现场，呈现车间环境、缝制作业、设备配置、检验环节与日常生产管理。",
-    galleryLabels: ["生产车间", "缝制工位", "工艺细节", "车间设备", "成衣检查", "现场陈列", "员工操作", "现场管理"],
+    galleryLabels: ["生产车间", "缝制工位", "缝制车间", "生产线布局", "裁剪作业", "整烫区域", "工厂入口", "检验作业"],
     contactLabel: "Contact",
     contactTitleA: "直接联系，",
     contactTitleB: "沟通生产合作",
@@ -332,7 +332,7 @@ const TRANSLATIONS = {
     galleryTitleA: "工場風景",
     galleryTitleB: "と生産ディテール",
     galleryIntro: "以下の写真は晨翔の生産現場で撮影され、工場環境、縫製作業、設備、検品工程、日常の生産管理を紹介しています。",
-    galleryLabels: ["生産現場", "縫製作業", "工程ディテール", "工場設備", "製品検査", "現場展示", "作業風景", "現場管理"],
+    galleryLabels: ["生産現場", "縫製作業", "縫製工場", "生産ライン配置", "裁断作業", "仕上げエリア", "工場入口", "検品作業"],
     contactLabel: "Contact",
     contactTitleA: "直接連絡して、",
     contactTitleB: "生産について相談する",
@@ -494,7 +494,7 @@ const TRANSLATIONS = {
     galleryTitleA: "Factory scenes",
     galleryTitleB: "and production details",
     galleryIntro: "The following photographs were taken at Chenxiang's production site and show the workshop environment, sewing operations, equipment, inspection activities and daily production management.",
-    galleryLabels: ["Production floor", "Sewing station", "Process detail", "Workshop equipment", "Garment inspection", "Workshop display", "Operator at work", "Shop-floor management"],
+    galleryLabels: ["Production floor", "Sewing station", "Sewing workshop", "Production-line layout", "Cutting operation", "Finishing area", "Factory entrance", "Inspection operation"],
     contactLabel: "Contact",
     contactTitleA: "Contact us directly",
     contactTitleB: "to discuss production",
@@ -519,14 +519,46 @@ const TRANSLATIONS = {
 } as const;
 
 const GALLERY_IMAGES = [
-  factoryImage("cc8fca1c35454b79677a3f15c9c48e91.jpg"),
-  factoryImage("22075cc6a0d47362d8d6f792f0ba53df.jpg"),
-  factoryImage("36f12e292673c08733b8e1d1d2c8131b.jpg"),
-  factoryImage("c7a165e82b9b8a01660500813360999b.jpg"),
-  factoryImage("d65fdf6f7ba6c25af3d319461d20a086.jpg"),
-  factoryImage("eaa9937535bceb6ae1088be4722adb41.jpg"),
-  factoryImage("e38232e852cf70d1b4d3792fcc9184d0.jpg"),
-  factoryImage("4aa57aa357fb7186afc2850c8779cabe.jpg"),
+  {
+    src: factoryImage("cc8fca1c35454b79677a3f15c9c48e91.jpg"),
+    position: "50% 50%",
+    filter: "brightness(1.05) contrast(1.04) saturate(0.85)",
+  },
+  {
+    src: factoryImage("36f12e292673c08733b8e1d1d2c8131b.jpg"),
+    position: "50% 55%",
+    filter: "brightness(1.02) contrast(1.03) saturate(0.82)",
+  },
+  {
+    src: factoryImage("c7a165e82b9b8a01660500813360999b.jpg"),
+    position: "50% 46%",
+    filter: "brightness(1.05) contrast(1.02) saturate(0.82)",
+  },
+  {
+    src: factoryImage("f29f893c7fcff2d1d397a79ba3b3d352.jpg"),
+    position: "50% 54%",
+    filter: "brightness(1.03) contrast(1.02) saturate(0.82)",
+  },
+  {
+    src: factoryImage("461c08776a8dda99f37e04c741bd1f35.jpg"),
+    position: "50% 54%",
+    filter: "brightness(1.14) contrast(0.98) saturate(0.78)",
+  },
+  {
+    src: factoryImage("eaa9937535bceb6ae1088be4722adb41.jpg"),
+    position: "50% 52%",
+    filter: "brightness(1.18) contrast(0.97) saturate(0.76)",
+  },
+  {
+    src: factoryImage("e38232e852cf70d1b4d3792fcc9184d0.jpg"),
+    position: "50% 48%",
+    filter: "brightness(1.01) contrast(1.03) saturate(0.8)",
+  },
+  {
+    src: factoryImage("4aa57aa357fb7186afc2850c8779cabe.jpg"),
+    position: "50% 52%",
+    filter: "brightness(1.12) contrast(0.98) saturate(0.8)",
+  },
 ];
 
 export default function App() {
@@ -898,7 +930,12 @@ export default function App() {
                 <div className="mt-8 grid grid-cols-2 gap-4">
                   {[FACTORY_IMAGES.line, FACTORY_IMAGES.detail, FACTORY_IMAGES.jacket, FACTORY_IMAGES.inspection].map((src, index) => (
                     <div key={src} className={`reveal aspect-[4/5] overflow-hidden bg-secondary shadow-xl shadow-slate-100 ${index === 1 ? "mt-10" : ""} ${index === 2 ? "-mt-10" : ""}`}>
-                      <img src={src} alt="factory production detail" className="h-full w-full object-cover scale-110 object-center transition-transform duration-700 hover:scale-118" />
+                      <img
+                        src={src}
+                        alt="factory production detail"
+                        className="h-full w-full object-cover object-center transition-transform duration-700 will-change-transform hover:scale-[1.06]"
+                        style={{ filter: "brightness(1.06) contrast(1.02) saturate(0.82)" }}
+                      />
                     </div>
                   ))}
                 </div>
@@ -953,9 +990,14 @@ export default function App() {
             </div>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {GALLERY_IMAGES.map((src, index) => (
-                <figure key={src} className="reveal group relative aspect-[3/4] overflow-hidden bg-secondary shadow-lg shadow-slate-100 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-slate-200">
-                  <img src={src} alt={t.galleryLabels[index]} className="h-full w-full object-cover scale-110 group-hover:scale-125 transition-transform duration-700" />
+              {GALLERY_IMAGES.map((image, index) => (
+                <figure key={image.src} className="reveal group relative aspect-[4/5] overflow-hidden bg-secondary shadow-lg shadow-slate-100 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-slate-200">
+                  <img
+                    src={image.src}
+                    alt={t.galleryLabels[index]}
+                    className="h-full w-full object-cover transition-transform duration-700 will-change-transform group-hover:scale-[1.06]"
+                    style={{ objectPosition: image.position, filter: image.filter }}
+                  />
                 </figure>
               ))}
             </div>
